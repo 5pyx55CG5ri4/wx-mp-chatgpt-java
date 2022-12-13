@@ -12,7 +12,6 @@ import com.zly.chatgpt.config.ChatGptConfig;
 import com.zly.chatgpt.constant.ChatGptConstant;
 import com.zly.chatgpt.dto.CompletionsReqParams;
 import com.zly.wxpush.util.OptionalString;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +26,6 @@ import java.util.stream.Collectors;
  * @date 2022/12/13
  */
 @Component
-@Slf4j
 public class ChatGptUtil {
 
     @Autowired
@@ -58,10 +56,10 @@ public class ChatGptUtil {
         completionsReqParams.setMaxTokens(chatGptConfig.getMaxTokens());
         completionsReqParams.setPrompt(prompt);
         post.body(JSONObject.toJSONString(completionsReqParams));
-        log.info("body is {}", completionsReqParams.toString());
+        System.out.println("body is " + completionsReqParams.toString());
         HttpResponse execute = post.execute();
         String body = execute.body();
-        log.info("execute body is {}", body);
+        System.out.println("execute body is " + body);
         JSONObject jsonObject = JSONObject.parseObject(body);
         JSONArray choices = jsonObject.getJSONArray(ChatGptConstant.CHOICES);
         String ret = choices.stream().map(JSONObject::toJSONString)

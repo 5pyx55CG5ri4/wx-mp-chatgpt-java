@@ -1,7 +1,6 @@
 package com.zly.wxpush.config;
 
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Component;
  * @date 2022/09/27
  */
 @Component
-@Data
 @ConfigurationProperties(prefix = "wx-config")
 public class WxConfig {
 
@@ -21,5 +19,30 @@ public class WxConfig {
     private String appSecret;
 
     private String checkToken;
+
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public String getAppSecret() {
+        return appSecret;
+    }
+
+    public void setAppSecret(String appSecret) {
+        this.appSecret = appSecret;
+    }
+
+    public String getCheckToken() {
+        return checkToken;
+    }
+
+    public void setCheckToken(String checkToken) {
+        this.checkToken = checkToken;
+    }
 }
 

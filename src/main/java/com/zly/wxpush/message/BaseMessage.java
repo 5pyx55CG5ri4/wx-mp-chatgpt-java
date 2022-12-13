@@ -1,7 +1,6 @@
 package com.zly.wxpush.message;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import lombok.Data;
 
 /**
  * 基础信息
@@ -9,7 +8,6 @@ import lombok.Data;
  * @author 5pyx55CG5ri4
  * @date 2022/09/28
  */
-@Data
 public class BaseMessage {
 
     @XStreamAlias(value = "ToUserName")
@@ -24,4 +22,35 @@ public class BaseMessage {
     @XStreamAlias(value = "MsgType")
     private String msgType;
 
+    public String getToUserName() {
+        return toUserName;
+    }
+
+    public void setToUserName(String toUserName) {
+        this.toUserName = toUserName;
+    }
+
+    public String getFromUserName() {
+        return fromUserName;
+    }
+
+    public void setFromUserName(String fromUserName) {
+        this.fromUserName = fromUserName;
+    }
+
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getMsgType() {
+        return msgType;
+    }
+
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
+    }
 }

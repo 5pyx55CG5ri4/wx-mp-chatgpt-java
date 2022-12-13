@@ -1,19 +1,11 @@
 package com.zly.wxpush.util;
 
 
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.http.HttpUtil;
-import com.alibaba.fastjson.JSONObject;
-import com.thoughtworks.xstream.XStream;
-import com.zly.wxpush.config.WxConfig;
-import com.zly.wxpush.constant.WxConstant;
 import com.zly.wxpush.message.TextMessage;
-import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +14,6 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 微信推送消息
@@ -31,7 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date 2022/09/27
  */
 @Component
-@Slf4j
 public class WxPushMessageUtil {
 
 

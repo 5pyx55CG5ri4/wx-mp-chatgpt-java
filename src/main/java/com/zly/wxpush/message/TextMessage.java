@@ -1,9 +1,7 @@
 package com.zly.wxpush.message;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.zly.wxpush.message.BaseMessage;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+
 
 /**
  * 短信
@@ -11,8 +9,7 @@ import lombok.EqualsAndHashCode;
  * @author 5pyx55CG5ri4
  * @date 2022/10/14
  */
-@EqualsAndHashCode(callSuper = true)
-@Data
+
 public class TextMessage extends BaseMessage {
 
     @XStreamAlias(value = "Content")
@@ -24,4 +21,11 @@ public class TextMessage extends BaseMessage {
     }
 
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

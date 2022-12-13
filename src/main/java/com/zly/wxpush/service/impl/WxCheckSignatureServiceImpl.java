@@ -5,7 +5,6 @@ import com.zly.chatgpt.ChatGptUtil;
 import com.zly.wxpush.constant.WxConstant;
 import com.zly.wxpush.service.WxCheckSignatureService;
 import com.zly.wxpush.util.WxPushMessageUtil;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,6 @@ import java.util.Map;
  * @date 2022/09/28
  */
 @Service
-@Slf4j
 public class WxCheckSignatureServiceImpl implements WxCheckSignatureService {
 
     @Autowired
@@ -33,7 +31,7 @@ public class WxCheckSignatureServiceImpl implements WxCheckSignatureService {
     @Override
     public String messageHandle(HttpServletRequest request, HttpServletResponse response) {
         Map<String, String> map = messageUtil.parseXml(request);
-        log.info("map {}", map);
+        System.out.println("map {}" + map);
         String msgType = map.get(WxConstant.MSG_TYPE_NAME);
         return autoResp(msgType, map);
     }
@@ -46,7 +44,6 @@ public class WxCheckSignatureServiceImpl implements WxCheckSignatureService {
         String toUserName = map.get(WxConstant.TO_USER_NAME);
         String msgId = map.get(WxConstant.MSG_ID);
         String content = map.get(WxConstant.CONTENT);
-        log.info("openId {}", openId);
         switch (type) {
             // 文本类型
             case WxConstant.RESP_MESSAGE_TYPE_TEXT:
