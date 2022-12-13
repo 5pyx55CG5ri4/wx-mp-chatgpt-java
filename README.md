@@ -4,84 +4,65 @@
 
 微信公众号集成 chatgpt 实现公众号AI机器人
 
-<!-- PROJECT SHIELDS -->
-
- 本篇README.md面向开发者
- 
+<!-- PROJECT SHIELDS --> 
 ## 目录
 
 - [上手指南](#上手指南)
   - [开发前的配置要求](#开发前的配置要求)
   - [安装步骤](#安装步骤)
-- [文件目录说明](#文件目录说明)
 - [开发的架构](#开发的架构)
 - [部署](#部署)
-- [使用到的框架](#使用到的框架)
-- [贡献者](#贡献者)
-  - [如何参与开源项目](#如何参与开源项目)
-- [版本控制](#版本控制)
-- [作者](#作者)
-- [鸣谢](#鸣谢)
+- [如何参与开源项目](#如何参与开源项目)
 
 ### 上手指南
 ###### 开发前的配置要求
 
 1. 微信公众平台账号（订阅号/服务号）
-2. chatgpt账号 [https://beta.openai.com/](openai)
-
+> 如果你没有微信公众号 请申请个体订阅号 [here](https://mp.weixin.qq.com/)
+2. chatgpt账号 [openai](https://beta.openai.com/)
+> 如果你没有 OpenAI 的账号，并且您在无法访问 OpenAI 的国家或地区，你可以查看 [here](https://mirror.xyz/boxchen.eth/9O9CSqyKDj4BKUIil7NC1Sa1LJM-3hsPqaeW_QjfFBc).
+3. 最好有一个私人域名
 ###### **安装步骤**
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
 
 ```sh
-git clone https://github.com/shaojintian/Best_README_template.git
-```
-
-### 文件目录说明
-eg:
+git clone https://github.com/5pyx55CG5ri4/wx-mp-chatgpt-java.git
+``` 
+2. 更换 [application](https://github.com/5pyx55CG5ri4/wx-mp-chatgpt-java/blob/main/src/main/resources/application.yml) 中的配置
 
 ```
-filetree 
-├── ARCHITECTURE.md
-├── LICENSE.txt
-├── README.md
-├── /account/
-├── /bbs/
-├── /docs/
-│  ├── /rules/
-│  │  ├── backend.txt
-│  │  └── frontend.txt
-├── manage.py
-├── /oa/
-├── /static/
-├── /templates/
-├── useless.md
-└── /util/
-
+#微信公众号配置
+wx-config:
+  appId: your appid
+  appSecret: your appSecret
+  checkToken: your checkToken
+#chatgpt配置  
+chatgpt-config:
+  model: text-davinci-003 #ai模型 可默认
+  temperature: 0.9 #热度 可默认
+  maxTokens: 512 # 最大token数 可默认
+  apiKey: your apiKey
 ```
-
-
-
-
-
-### 开发的架构 
-
-请阅读[ARCHITECTURE.md](https://github.com/shaojintian/Best_README_template/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
-
+3. run project
+```
+1. mvn clean package
+2. java -jar ${projectName}
+``` 
+### 开发的架构
+> 1. java8
+> 2. springboot2.x
 ### 部署
-
-暂无
-
-### 使用到的框架
-
-- [xxxxxxx](https://getbootstrap.com)
-- [xxxxxxx](https://jquery.com)
-- [xxxxxxx](https://laravel.com)
-
-### 贡献者
-
-请阅读**CONTRIBUTING.md** 查阅为该项目做出贡献的开发者。
+> - 推荐使用微信云托管平台部署 新用户可免费试用3个月 项目内置了Dockerfile 上云托管看下就明白了
+> - 私人云服务是一样的 未依赖任何中间件 有jdk环境的服务器都可以部署 
+> - railway 也可以试试 作者没成功 微信公众号服务器配置 域名映射不上
+> - 服务启动后需到微信公众平台后台 -> 设置与开发 -> 基本配置菜单 -> 服务器配置 
+> ```sh
+> 服务器地址(URL):服务映射的域名 + wx/login
+> 令牌(Token):application.yml中配置的 checkToken
+> 消息加解密密钥(EncodingAESKey):自动生成
+> 消息加解密方式:明文模式 
+> ``` 
 
 #### 如何参与开源项目
 
@@ -94,48 +75,6 @@ filetree
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
-### 版本控制
-
-该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
-
-### 作者
-
-xxx@xxxx
-
-知乎:xxxx  &ensp; qq:xxxxxx    
-
- *您也可以在贡献者名单中参看所有参与该项目的开发者。*
-
-### 版权说明
-
-该项目签署了MIT 授权许可，详情请参阅 [LICENSE.txt](https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt)
-
-### 鸣谢
-
-
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Img Shields](https://shields.io)
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Pages](https://pages.github.com)
-- [Animate.css](https://daneden.github.io/animate.css)
-- [xxxxxxxxxxxxxx](https://connoratherton.com/loaders)
-
-<!-- links -->
-[your-project-path]:shaojintian/Best_README_template
-[contributors-shield]: https://img.shields.io/github/contributors/shaojintian/Best_README_template.svg?style=flat-square
-[contributors-url]: https://github.com/shaojintian/Best_README_template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/shaojintian/Best_README_template.svg?style=flat-square
-[forks-url]: https://github.com/shaojintian/Best_README_template/network/members
-[stars-shield]: https://img.shields.io/github/stars/shaojintian/Best_README_template.svg?style=flat-square
-[stars-url]: https://github.com/shaojintian/Best_README_template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/shaojintian/Best_README_template.svg?style=flat-square
-[issues-url]: https://img.shields.io/github/issues/shaojintian/Best_README_template.svg
-[license-shield]: https://img.shields.io/github/license/shaojintian/Best_README_template.svg?style=flat-square
-[license-url]: https://github.com/shaojintian/Best_README_template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/shaojintian
 
 
 
