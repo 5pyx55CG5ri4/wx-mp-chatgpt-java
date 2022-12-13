@@ -1,12 +1,12 @@
 server:
   port: 8080
 wx-config:
-  appId: wx6b9e04a931092d57
-  appSecret: e1e03fcb393fcf4b43aa63ce237d13ad
-  checkToken: abcdefghijklmnopqrstuvwxyz
+  appId: ***********
+  appSecret: ***********
+  checkToken: ***********
 
 chatgpt-config:
   model: text-davinci-003
   temperature: 0.9
   maxTokens: 512
-  apiKey: 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
+  apiKey: ***********
